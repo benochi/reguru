@@ -79,7 +79,7 @@ function App() {
       value={{
         currentUser, setCurrentUser,
       }}>
-        <div className="App vh-100 ">
+        <div className="App vh-200 ">
           <Navigation logout={logout} />
           <NavRoutes login={login} register={register} />
         </div>
