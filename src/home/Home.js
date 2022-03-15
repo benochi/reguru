@@ -4,8 +4,8 @@ import { Container, Col, Row } from "reactstrap";
 
 function Home(){
   return (
-    <div className="Home container-fluid h-100 bg-black p-5">
-      <Container className=" mx-auto col-lg-12 bg-black m-5 border border-white">
+    <div className="Home p-5">
+      <Container className="mx-auto col-lg-12 bg-black m-5 border border-white">
         <h1 className="p-3">
           Welcome to REGURU!
         </h1>
