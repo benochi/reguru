@@ -22,7 +22,7 @@ function Home(){
         <Row>
           <Col className="col-md-4">
             <h5>REGURU-API</h5>
-            <p>Heroku, MongoDB, MongoDB Atlas, Mongoose, NodeJS, Express.</p>
+            <p>Heroku, MongoDB, MongoDB Atlas, Mongoose, NodeJS, Express, Python(data).</p>
           </Col>
           <Col className="col-md-4">
             <h5>REGURU backend</h5>
@@ -30,7 +30,7 @@ function Home(){
           </Col>
           <Col className="col-md-4">
             <h5>REGURU frontend</h5>
-            <p>Heroku, JavaScript, React, Redux, Formik, Reactstrap.</p>
+            <p>Heroku, JavaScript, React, Formik, Reactstrap.</p>
           </Col>
         </Row>
         <Row>
