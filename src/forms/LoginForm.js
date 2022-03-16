@@ -70,14 +70,14 @@ function LoginForm({ login }){
                 required
               />
               {formik.touched.password && formik.errors.password ? <p className="text-danger"><small>{formik.errors.password}</small></p> : null}
-              </Col>
+            </Col>
           </FormGroup>
-                { formErrors.length
-                  ? <p className="text-danger"><small>Invalid username/password</small></p>
-                  : null}
-                <Button type="submit" className="bg-primary mx-auto col-lg-6 mt-5 mb-5" onSubmit={formik.onSubmit}>
-                  Login!
-                </Button>
+            { formErrors.length
+              ? <p className="text-danger"><small>Invalid username/password</small></p>
+                : null}
+            <Button type="submit" className="bg-primary mx-auto col-lg-6 mt-5 mb-5" onSubmit={formik.onSubmit}>
+              Login!
+            </Button>
         </Row>
       </Form>
     </Container>
