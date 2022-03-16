@@ -39,7 +39,7 @@ function LoginForm({ login }){
         <Row>
           <FormGroup row className="mx-auto mt-3 mb-2 mr-sm-2 mb-sm-0 col-lg-8">
             <Label for="username" className="mr-sm-2 mt-2">
-              Username
+              Username (testuser for demo)
             </Label>
             <Col sm={12}>
               <Input
@@ -56,7 +56,7 @@ function LoginForm({ login }){
           </FormGroup>
           <FormGroup row className="mx-auto mb-2 mr-sm-2 mt-2 mb-sm-0 col-lg-8">
             <Label>
-              Password
+              Password (test1234 for demo)
             </Label>
             <Col sm={12}>
               <Input
