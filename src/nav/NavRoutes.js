@@ -15,7 +15,7 @@ function NavRoutes({ login, register }) {
         <Route exact path="/register" element={<SignupForm register={register} />}/>
         <Route exact path="/dashboard/*" element={<PrivateRoute /> } />
           <Route exact path="/dashboard" element={<Dashboard />} />
-        <Route path="/" element={<Navigate replace to="/home"/>} />
+        <Route path="*" element={<Home />} />
       </Routes>
   )
 }
