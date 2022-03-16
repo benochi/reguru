@@ -41,8 +41,8 @@ function Home(){
           </Row>
           <Row>
           <Col className="mb-3 col-md-12">
-            <p>Test user: bob1 </p>
-            <p>Password: bobisbob </p>
+            <p>Test user: testuser </p>
+            <p>Password: test1234 </p>
           </Col>
         </Row>        
       </Container>
