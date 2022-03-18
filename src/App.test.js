@@ -8,7 +8,5 @@ test('renders', () => {
       <App />
     </BrowserRouter>
   );
-
-  screen.debug();
 });
 
