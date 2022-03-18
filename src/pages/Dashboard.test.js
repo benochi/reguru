@@ -1,41 +1,58 @@
-import { fireEvent, render as rtlRender, screen } from '@testing-library/react';
+import React from 'react';
+import { cleanup, screen } from '@testing-library/react';
+import ShallowRenderer from 'react-test-renderer/shallow'
 import { BrowserRouter } from 'react-router-dom';
-import Home from '../home/Home';
-import UserContext from "../UserContext";
+import UserContext from '../UserContext';
 import Dashboard from './Dashboard';
 
-const render = component => rtlRender(
-  <UserContext.Provider
-    value={{
-      currentUser: "bob1", setCurrentUser: "bob1",
-    }}>
-    {component}
-  </UserContext.Provider>
-)
+const UserContextProvider = ({ children }) => (
+  <UserContext.Provider value={{
+    currentUser: "testuser"
+  }}>{children}</UserContext.Provider>
+);
 
-/*const render2 = component => rtlRender(
-  <UserContext.Provider
-    value={{
-      currentUser: null, setCurrentUser: null,
-    }}>
-    {component}
-  </UserContext.Provider>
-) */
-test('renders', () => {
-  render(
-    <BrowserRouter>
-      <Dashboard />
-    </BrowserRouter>
-  );
-  waitFor(screen.debug());
-});
+const wrapper = ({ children }) => (
+  <BrowserRouter>
+    <UserContextProvider>
+      {children}
+    </UserContextProvider>
+  </BrowserRouter>
+);
+let dashboard = wrapper(<Dashboard />)
+let resultLikedProperties = [];
 
-test('Redirect to home on not loggedin. ', () => {
-  render(
-    <BrowserRouter>
-      <Home />
-    </BrowserRouter>
+const mockSetLikedProperties = jest.fn().mockImplementation(property => {
+  resultLikedProperties = [...property];
+  return resultLikedProperties;
+}); 
+
+const mockUserContext = jest.fn().mockImplementation(() => ({
+  currentUser: "testuser",
+  setLikedProperties: mockSetLikedProperties,
+  setManagedProperties: mockSetManagedProperties,
+  setValue: mockSetValue,
+  setMetrics: mockSetMetrics
+}));
+
+React.useContext = mockUserContext;
+
+afterEach(cleanup)
+
+test('Renders.', () => {
+  wrapper(
+    <Dashboard />
   );
   screen.debug();
 });
+
+it('renders correctly react-test-renderer', () => {
+  const renderer = new ShallowRenderer();
+  renderer.render(dashboard);
+  const result = renderer.getRenderOutput();
+  
+  expect(result).toMatchSnapshot();
+});
+
+
+
 
