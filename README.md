@@ -16,8 +16,11 @@ testuser/test1234 is available for trying out the app.
 
 ##Overall design of the app.
 
-The frontend communicates to a NodeJS/Express/MongoDB Atlas backend for the user database.
-The backend handles API calls to the reguru-API which is written in NodeJS/Express/MongoDB which handles the property Database. 
+The frontend communicates to a NodeJS/Express/MongoDB Atlas backend for the user database using Axios.  
+The backend handles API calls to the reguru-API which is written in NodeJS/Express/MongoDB.  
+The API is written in NodeJS/Express/MongoDB using Mongoose.  
+The API handles the real-estate database which where populated from real listings.  
+These were converted to useable JSON with a custom Python app. 
 
 API calls are handled using Mongoose and Async/await
 
