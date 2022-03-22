@@ -2,6 +2,11 @@
 
 This project is hosted at http://reguru.herokuapp.com/
 
+## Local use:
+It is highly recommended that you also download and run the reguru-backend.
+reguru-frontend: 
+Download the zip -> extract -> cd reguru-main -> npm i -> npm start
+
 ## Languages used:
 
 The frontend is written in React v17.  
