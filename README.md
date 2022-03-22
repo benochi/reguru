@@ -4,11 +4,11 @@ This project is hosted at http://reguru.herokuapp.com/
 
 ## Languages used:
 
-The frontend is written in React v17.
-The app uses react-router-dom v6. 
-Validation is completed using Formik and Yup.
-API calls are completed with Axios. 
-Tests are written using the React-Testing-Library. 
+The frontend is written in React v17.  
+The app uses react-router-dom v6.  
+Validation is completed using Formik and Yup.  
+API calls are completed with Axios.  
+Tests are written using the React-Testing-Library.  
 
 ## Login
 
