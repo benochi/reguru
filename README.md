@@ -28,6 +28,6 @@ The **API** handles the real-estate database which where populated from real lis
 These were converted to useable JSON with a custom Python app. 
 
 
-##The code for the backend can be found at:
+## The code for the backend can be found at:
 
 https://github.com/benochi/reguru-backend
