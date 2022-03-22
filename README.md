@@ -19,7 +19,7 @@ Tests are written using the React-Testing-Library.
 
 testuser/test1234 is available for trying out the app. 
 
-##Overall design of the app.
+## Overall design of the app.
 
 The **frontend** communicates to a NodeJS/Express/MongoDB Atlas backend for the user database using Axios.  
 The **backend** handles API calls to the reguru-API which is written in NodeJS/Express/MongoDB.  
