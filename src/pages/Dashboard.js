@@ -11,6 +11,7 @@ import SearchProperties from "../propertyLists/SearchProperties";
 import { useNavigate } from 'react-router-dom';
 import PropertyData from "./PropertyData";
 import PropertyDataForm from "../forms/PropertyDataForm";
+//import jwtDecode from "jwt-decode";
 
 function Dashboard(){
   const { currentUser } = useContext(UserContext);
@@ -43,6 +44,7 @@ function Dashboard(){
   //on mount will load all liked properties for currentUser
   async function handlePropertySearch() {
     let arr=[]
+    
     let user = await AuthUser.getCurrentUser(currentUser);
     let properties = user.liked_properties
     for(let x =0; x < properties.length; x++) {
@@ -51,6 +53,10 @@ function Dashboard(){
     }  
     setLikedProperties(arr)
   }
+
+  //add to all requests. 
+  /*let token = localStorage.getItem("reguru-token")
+  console.log(jwtDecode(token).username)*/
 
   //for individual properties added
   async function handleLikedPropertySearch(property_id) {
@@ -148,6 +154,17 @@ function Dashboard(){
                 propertyData={propertyData}
                 metrics={metrics}
               />
+              { managedProperties.length
+                ? <Row className="bg-black text-white border border-white p-1 col-sm-12 mx-auto mt-2">
+                  <p >Total price of properties: ${displayPrice}</p>
+                  <PropertyDataForm 
+                    value={value}
+                    propertyData={propertyData}
+                    setPropertyData={setPropertyData} 
+                    setMetrics={setMetrics}
+                  />
+                  </Row>
+                  : null}
             </Col>
           </Col>
           <Col xs="4">
@@ -171,17 +188,7 @@ function Dashboard(){
                 getValue={getValue}
                 value={value}
               />
-              { managedProperties.length
-                ? <div className="bg-black text-white border border-white p-1 col-sm-10 mx-auto mt-2">
-                  <p >Total price of properties: {displayPrice}</p>
-                  <PropertyDataForm 
-                    value={value}
-                    propertyData={propertyData}
-                    setPropertyData={setPropertyData} 
-                    setMetrics={setMetrics}
-                  />
-                  </div>
-                  : null}
+              
             </Col>
           </Col>
         </Row>

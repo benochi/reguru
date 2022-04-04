@@ -24,9 +24,9 @@ function SearchForm({
   //handle initial search and reset pagecount for pagination. 
   async function handleSubmit(evt) {
     evt.preventDefault();    
-    
+    setResults(false);
     let minPrice = +formData.minPrice 
-    let maxPrice = +formData.maxPrice 
+    let maxPrice = +formData.maxPrice || 100000000
     let bathrooms = +formData.bathrooms 
     let bedrooms = +formData.bedrooms 
     let sqft = +formData.sqft 
@@ -48,6 +48,7 @@ function SearchForm({
 
   //form validation
   async function searchValidate(min, max, bed, bath, sq) {
+    setFormErrors([]);
     if(min > max) {
       setFormErrors(["Minimum price can't be higher than maximum price."])
       return false;
@@ -86,7 +87,6 @@ function SearchForm({
   //Update form data
   function handleChange(evt) {
     evt.preventDefault()
-    
     const { name, value } = evt.target;
     setFormData(l => ({ ...l, [name]: value }));
   }

@@ -1,12 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
 import { Container, Form, Label, Row, FormGroup, Col, Input, Button } from "reactstrap";
 import { useFormik } from "formik";
 import * as Yup from "yup"; 
 
 
 function PropertyDataForm({setPropertyData, value, setMetrics}){
-  const [formErrors, setFormErrors] = useState([]);
   
+  let price = value.price;
   const formik = useFormik({
     initialValues: {
       taxes: "",
@@ -14,9 +14,13 @@ function PropertyDataForm({setPropertyData, value, setMetrics}){
       expenses: ""
     },
     validationSchema: Yup.object({
-      taxes: Yup.number().max(1000000, "Hello, Nicholas Cage."),
-      owed: Yup.number().max(100000000, "Number is too long"),
-      expenses: Yup.number().max(1000000, "Number is too long")
+      taxes: Yup.number().max(10000000, "Number is too long").positive(),
+      owed: Yup.number().max(100000000, "Number is too long").positive(),
+      expenses: Yup.number().test(
+        'are expenses less than price',
+        'Expenses cannot be higher than price',
+        function(value){ 
+          return value == undefined || value <= price }).positive()
     }),
     //Note - "value" comes from dashboard, "values" is from form input. 
     onSubmit: async (values) => {
@@ -31,7 +35,6 @@ function PropertyDataForm({setPropertyData, value, setMetrics}){
       } else {
         let errors = []
         errors.push(formik.errors)
-        setFormErrors(errors);
       }}
     })
 
@@ -39,9 +42,9 @@ function PropertyDataForm({setPropertyData, value, setMetrics}){
     <Container>
       <Form onSubmit={formik.handleSubmit}>
         <Row>
-          <FormGroup row className="mx-auto col-lg-4">
+          <FormGroup row className="mx-auto col-lg-10">
             <Label for="taxes" className="">
-              Taxes:
+              Enter Taxes in dollars:
             </Label>
             <Col sm={12}>
               <Input
@@ -50,14 +53,17 @@ function PropertyDataForm({setPropertyData, value, setMetrics}){
                 className="form-control"
                 value={formik.values.taxes}
                 onChange={formik.handleChange}
+                placeholder="$"
                 required
               />
               {formik.errors.taxes ? <p className="text-danger"><small>{formik.errors.taxes}</small></p> : null}
             </Col>
-          </FormGroup>
-          <FormGroup row className="mx-auto col-lg-4">
+          </FormGroup>  
+        </Row>
+        <Row>
+          <FormGroup row className="mx-auto col-lg-10">
             <Label for="expenses" className="">
-              Expenses:
+            Enter Expenses in dollars:
             </Label>
             <Col sm={12}>
               <Input
@@ -66,14 +72,17 @@ function PropertyDataForm({setPropertyData, value, setMetrics}){
                 pattern="[0-9]*"
                 value={formik.values.expenses}
                 onChange={formik.handleChange}
+                placeholder="$"
                 required
               />
               {formik.errors.expenses ? <p className="text-danger"><small>{formik.errors.expenses}</small></p> : null}
             </Col>
           </FormGroup>
-          <FormGroup row className="mx-auto col-lg-4">
+        </Row>
+        <Row>
+          <FormGroup row className="mx-auto col-lg-10">
             <Label for="owed" className="">
-              Owed:
+              Enter amount owed on properties in dollars:
             </Label>
             <Col sm={12}>
               <Input
@@ -82,20 +91,21 @@ function PropertyDataForm({setPropertyData, value, setMetrics}){
                 className="form-control"
                 value={formik.values.owed}
                 onChange={formik.handleChange}
+                placeholder="$"
                 required
               />
               {formik.errors.owed ? <p className="text-danger"><small>{formik.errors.owed}</small></p> : null}
             </Col>
           </FormGroup>
+          </Row>
           <Button 
             type="submit"
             style={{backgroundColor:"#00ff7f", color:"black", boxShadow: "5px 5px 3px rgba(46, 46, 46, 0.62)"}}
-            className="mx-auto col-sm-12"
+            className="mx-auto col-sm-12 m-1"
             onClick={formik.onClick}
           >
             Calculate data
           </Button>  
-        </Row>
       </Form>
     </Container>
   )

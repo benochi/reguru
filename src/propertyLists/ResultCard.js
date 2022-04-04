@@ -18,9 +18,9 @@ function ResultCard({
   const [liked, setLiked] = useState(false)
   const [managed, setManaged] = useState(false)
 
-  useEffect(async function updateLikedStatus() {
-    await checkLiked(id);
-    await checkManaged(id);
+  useEffect(function updateLikedStatus() {
+    checkLiked(id);
+    checkManaged(id);
   }, [likedProperties, managedProperties]);
 
   //like functions to add to DB and state prop(dashboard)

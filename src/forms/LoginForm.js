@@ -39,7 +39,7 @@ function LoginForm({ login }){
         <Row>
           <FormGroup row className="mx-auto mt-3 mb-2 mr-sm-2 mb-sm-0 col-lg-8">
             <Label for="username" className="mr-sm-2 mt-2">
-              Username (testuser for demo)
+              Username
             </Label>
             <Col sm={12}>
               <Input
@@ -56,7 +56,7 @@ function LoginForm({ login }){
           </FormGroup>
           <FormGroup row className="mx-auto mb-2 mr-sm-2 mt-2 mb-sm-0 col-lg-8">
             <Label>
-              Password (test1234 for demo)
+              Password
             </Label>
             <Col sm={12}>
               <Input
@@ -70,14 +70,14 @@ function LoginForm({ login }){
                 required
               />
               {formik.touched.password && formik.errors.password ? <p className="text-danger"><small>{formik.errors.password}</small></p> : null}
-            </Col>
+              </Col>
           </FormGroup>
-            { formErrors.length
-              ? <p className="text-danger"><small>Invalid username/password</small></p>
-                : null}
-            <Button type="submit" className="bg-primary mx-auto col-lg-6 mt-5 mb-5" onSubmit={formik.onSubmit}>
-              Login!
-            </Button>
+                { formErrors.length
+                  ? <p className="text-danger"><small>Invalid username/password</small></p>
+                  : null}
+                <Button type="submit" className="bg-primary mx-auto col-lg-6 mt-5 mb-5" onSubmit={formik.onSubmit}>
+                  Login!
+                </Button>
         </Row>
       </Form>
     </Container>
