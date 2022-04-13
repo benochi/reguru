@@ -6,14 +6,7 @@ This project is hosted at http://reguru.herokuapp.com/
 It is **highly** recommended that you also download and run the reguru-backend.  
 reguru-frontend:  
 Download the zip -> extract -> cd reguru-main -> npm i -> npm start  
-
-## Languages used:
-
-The frontend is written in React v17.  
-The app uses react-router-dom v6.  
-Validation is completed using Formik and Yup.  
-API calls are completed with Axios.  
-Tests are written using the React-Testing-Library.  
+npm test from root will run the tests.  
 
 ## Login
 
@@ -21,7 +14,8 @@ testuser/test1234 is available for trying out the app.
 
 ## Overall design of the app.
 
-The **frontend** uses Javascript, React v17, Formik, Yup, Reactstrap, and Bootstrap with Axios for API calls.   It handles Dashboard interaction for logged in users to add  properties to their liked/managed lists.  This then allows users to calculate profit from the categories entered.  
+The **frontend** uses Javascript, React v17, Formik, Yup, Reactstrap, and Bootstrap with Axios for API calls.   It handles Dashboard interaction for logged in users to add  properties to their liked or managed lists.  This then allows users to calculate profit from the managed properties list using other variables(taxes,expenses,owed) to generate a chart using Chart.js.  
+
 The front end uses cookies, validation, JWTs, API calls, React_Context, ReactStrap, and Bootstrap.  
 
 The **backend** handles API calls to the reguru-APIand stores user data while using JWTs for authorization.   
