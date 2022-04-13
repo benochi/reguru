@@ -47,18 +47,18 @@ A user will land at the home page which gives a brief overview of the Applicatio
 From here a user can navigate to register or login.  
 After login or registration the user will be redirected to their dashboard.  
 The dashboard gives access to a property data column, a liked property column, a managed property column, and a search form.
-#### Property data:
+### Property data:
 This includes a form for entering taxes, expenses, and amount owed on the properties in the user's managed property list.  The value of properties is dynamic.  
 Upon submitting the form a chart will appear that breaks down the categories and shows the user profit/equity in the properties so far.  
   
-#### Liked Properties
+### Liked Properties
 This is a column that allows you to track specific properties the user wants to save.  The user can also move these into the managed property column when the time is right. Properties can intially be added to both columns, so that users can make calculations on potential investment properties without losing track of them. If added from liked -> managed, the app will automatically remove the property from liked.
 
-#### Managed properties
+### Managed properties
 This column allows tracking currently managed properties and dynamically updates the total value for the property data column.  Users can add managed properties from liked properties or from the search results directly. 
 
-#### Search Form
+### Search Form
 The search form allows a user to search properties using minimum price, maximum price, minimum bedrooms, minimum bathrooms, or minimum sqft.
 Results are paginated and returned with quick add buttongs to move them into liked or managed property columns on the dashboard.  Users can search using as many or as few categories as they want.  
-
-Thank you for stopping by! 
+  
+###Thank you for stopping by! 
