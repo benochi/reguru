@@ -21,9 +21,11 @@ testuser/test1234 is available for trying out the app.
 
 ## Overall design of the app.
 
-The **frontend** communicates to a NodeJS/Express/MongoDB Atlas backend for the user database using Axios.  
-The **backend** handles API calls to the reguru-API which is written in NodeJS/Express/MongoDB.  
-The **API** is written in NodeJS/Express/MongoDB using Mongoose.  
+The **frontend** uses Javascript, React v17, Formik, Yup, Reactstrap, and Bootstrap with Axios for API calls.   It handles Dashboard interaction for logged in users to add  properties to their liked/managed lists.  This then allows users to calculate profit from the categories entered.  
+The front end uses cookies, validation, JWTs, API calls, React_Context, ReactStrap, and Bootstrap.  
+
+The **backend** handles API calls to the reguru-APIand stores user data while using JWTs for authorization.   
+The **API** is written in NodeJS/Express/MongoDB using Mongoose and stores all property data.  This is hosted seperately from the REGURU app.   
 The **API** handles the real-estate database which where populated from real listings.  
 These were converted to useable JSON with a custom Python app. 
 
