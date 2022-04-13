@@ -61,4 +61,4 @@ This column allows tracking currently managed properties and dynamically updates
 The search form allows a user to search properties using minimum price, maximum price, minimum bedrooms, minimum bathrooms, or minimum sqft.
 Results are paginated and returned with quick add buttongs to move them into liked or managed property columns on the dashboard.  Users can search using as many or as few categories as they want.  
 
-##Thank you for stopping by! 
+Thank you for stopping by! 
