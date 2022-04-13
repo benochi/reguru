@@ -14,13 +14,17 @@ function PropertyDataForm({setPropertyData, value, setMetrics}){
       expenses: ""
     },
     validationSchema: Yup.object({
-      taxes: Yup.number().max(10000000, "Number is too long").positive(),
+      taxes: Yup.number().max(10000000, "Number is too long").test(
+        'are expenses less than price',
+        'Taxes cannot be higher than price',
+        function(value){ 
+          return value === undefined || value <= price }).positive(),
       owed: Yup.number().max(100000000, "Number is too long").positive(),
-      expenses: Yup.number().test(
+      expenses: Yup.number().max(10000000, "Number is too long").test(
         'are expenses less than price',
         'Expenses cannot be higher than price',
         function(value){ 
-          return value == undefined || value <= price }).positive()
+          return value === undefined || value <= price }).positive()
     }),
     //Note - "value" comes from dashboard, "values" is from form input. 
     onSubmit: async (values) => {
